@@ -1,6 +1,7 @@
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -42,6 +43,15 @@ public class PlantManager {
             e.printStackTrace();
         }
     }
+
+    public void sort() {
+        Collections.sort(plantList);
+    }
+
+    public void sortWateringDate() {
+        Collections.sort(plantList, Plant::compareWateringDate);
+    }
+
     public void add(Plant newPlant) {
         plantList.add(newPlant);
     }

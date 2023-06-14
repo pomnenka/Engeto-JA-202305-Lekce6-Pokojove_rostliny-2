@@ -1,11 +1,20 @@
 import java.time.LocalDate;
 
-public class Plant {
+public class Plant implements Comparable<Plant> {
     String name;
     String notes;
     LocalDate plantedDate;
     LocalDate wateringDate;
     int wateringFrequency;
+
+    @Override
+    public int compareTo(Plant second) {
+        return this.name.compareTo(second.name);
+    }
+
+    public int compareWateringDate(Plant second) {
+        return this.wateringDate.compareTo(second.wateringDate);
+    }
 
     public Plant(String name, String notes, LocalDate plantedDate, LocalDate wateringDate, int wateringFrequency) throws PlantException {
         if (wateringFrequency <= 0) { throw new PlantException("Frekvence zálivky musí být větší než nula.");}
