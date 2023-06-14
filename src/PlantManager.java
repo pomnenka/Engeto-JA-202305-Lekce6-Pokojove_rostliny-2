@@ -27,7 +27,7 @@ public class PlantManager {
         } catch (FileNotFoundException e) {
             throw new PlantException("Soubor " + filename + " nebyl nalezen! " + e.getLocalizedMessage());
         } catch (NumberFormatException e) {
-            throw new PlantException("Špatně zadané číslo " + items[2] + " na řádku:" + lineNumber + ":\n" + line);
+            throw new PlantException("Špatně zadané číslo " + items[2] + " na řádku:" + lineNumber + ":\n" + line + ". " + e.getLocalizedMessage());
         }
     }
 
