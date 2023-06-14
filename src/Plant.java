@@ -1,11 +1,11 @@
 import java.time.LocalDate;
 
 public class Plant implements Comparable<Plant> {
-    String name;
-    String notes;
-    LocalDate plantedDate;
-    LocalDate wateringDate;
-    int wateringFrequency;
+    private String name;
+    private String notes;
+    private LocalDate plantedDate;
+    private LocalDate wateringDate;
+    private int wateringFrequency;
 
     @Override
     public int compareTo(Plant second) {
