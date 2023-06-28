@@ -75,14 +75,14 @@ public class Main {
 
         System.out.println("\nSeznam datumů výsadby:");
         Set<LocalDate> mnozinaDatumyVysadby = new HashSet<>();
-        plantManager.getPlantList().forEach(n -> mnozinaDatumyVysadby.add(n.plantedDate));
+        plantManager.getPlantList().forEach(n -> mnozinaDatumyVysadby.add(n.getPlantedDate()));
         mnozinaDatumyVysadby.forEach(n -> System.out.println(n));
 
         System.out.println("\nSeznam datumů výsadby za poslední 4 měsíce:");
         Set<LocalDate> mnozinaDatumyVysadby4mesice = new HashSet<>();
         plantManager.getPlantList().forEach(n -> {
-            if (ChronoUnit.MONTHS.between(n.plantedDate, LocalDate.now()) < 4) {
-                mnozinaDatumyVysadby4mesice.add(n.plantedDate);
+            if (ChronoUnit.MONTHS.between(n.getPlantedDate(), LocalDate.now()) < 4) {
+                mnozinaDatumyVysadby4mesice.add(n.getPlantedDate());
             }
         });
         mnozinaDatumyVysadby4mesice.forEach(n -> System.out.println(n));

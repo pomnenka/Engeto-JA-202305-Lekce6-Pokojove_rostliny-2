@@ -17,9 +17,14 @@ public class Plant implements Comparable<Plant> {
     }
 
     public Plant(String name, String notes, LocalDate plantedDate, LocalDate wateringDate, int wateringFrequency) throws PlantException {
+        System.out.println("test print: name='" + name + '\'' +
+                ", notes='" + notes + '\'' +
+                ", plantedDate=" + plantedDate +
+                ", wateringDate=" + wateringDate +
+                ", wateringFrequency=" + wateringFrequency);
         this.name = name;
         this.notes = notes;
-        setPlantedDate(plantedDate);
+        setPlantedDate(plantedDate, wateringDate);
         this.wateringDate = wateringDate;
         setWateringFrequency(wateringFrequency);
     }
@@ -52,7 +57,7 @@ public class Plant implements Comparable<Plant> {
         return plantedDate;
     }
 
-    public void setPlantedDate(LocalDate plantedDate) throws PlantException {
+    public void setPlantedDate(LocalDate plantedDate, LocalDate wateringDate) throws PlantException {
         if (wateringDate.isBefore(plantedDate)) {
             throw new PlantException("Datum zálivky musí být pozdější než datum výsadby.");
         }
